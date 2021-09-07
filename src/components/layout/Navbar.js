@@ -4,7 +4,9 @@ export class Navbar extends Component {
     render() {
         return (
             <div className="navbar bg-primary">
-                <h1><i className='fab fa-github'/>Navbar</h1>
+                <h1>
+                    <i className={this.props.icon}/> {this.props.title}
+                </h1>
             </div>
         )
     }

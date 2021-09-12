@@ -7,8 +7,9 @@ class App extends Component {
   
   foo = () => 'Bars'
   render() {
+    //const numbers = [1, 2, 3]
     return(<div className="App">
-      <Navbar icon="fab fa-github" title="GitHub Finder"/>
+      <Navbar />
       
     </div>
     );

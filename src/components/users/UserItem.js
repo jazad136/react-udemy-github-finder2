@@ -5,9 +5,9 @@ class UserItem extends Component {
         super();
         this.state = {
             id: 'id',
-            login: 'mojombo',
-            avatar_url: 'https://avatars.githubusercontent.com/u/1?v=4',
-            html_url: "https://github.com/mojombo"
+            login: 'jazad136',
+            avatar_url: 'https://avatars.githubusercontent.com/u/1129384?v=4',
+            html_url: "https://github.com/jazad136"
 
         }
     }

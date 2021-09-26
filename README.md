@@ -10,6 +10,10 @@ As of the date of first publishing this readme (Aug. 31, 2021)
 React 16.8.6 is the last version of React that has [online 
 documentation](https://5d4b5feba32acd0008d0df98--reactjs.netlify.app). 
 
+#### Current Status of this App
+(Sep 25) Pulling images from GitHub API (api.github.com). 
+Image (Sep 25)
+![ExpectedOutput](https://github.com/jazad136/react-udemy-github-finder2/blob/master/images/.png) 
 
 ### Some Commands to Run to Start App
 

@@ -1,5 +1,7 @@
 React UDemy Repository - Including the GitHub Finder App from the React Front To Back Demonstration by Brad Traversy. 
 
+**Maintainer**: Jonathan A. Saddler, Ph. D.
+
 ### Important pieces
 This project uses:
 - React 16.8.6 
@@ -10,10 +12,17 @@ As of the date of first publishing this readme (Aug. 31, 2021)
 React 16.8.6 is the last version of React that has [online 
 documentation](https://5d4b5feba32acd0008d0df98--reactjs.netlify.app). 
 
+### The expected look of this app.
+
+![ExpectedOutput](https://github.com/jazad136/react-udemy-github-finder2/blob/main/images/Expectation.png) 
+
+
 #### Current Status of this App
 (Sep 25) Pulling images from GitHub API (api.github.com). 
 Image (Sep 25)
-![ExpectedOutput](https://github.com/jazad136/react-udemy-github-finder2/blob/master/images/.png) 
+
+![CurrentStatus](https://github.com/jazad136/react-udemy-github-finder2/blob/main/images/status-githubfinder-lca2.png) 
+
 
 ### Some Commands to Run to Start App
 
@@ -27,4 +36,4 @@ This project was bootstrapped with [Create React App]
 
 #### not a required command. 
 Builds the app for production to the `build` folder. Also bundles React in production mode 
-and optimizes the build for the best performance.
+and optimizes the build for better performance.

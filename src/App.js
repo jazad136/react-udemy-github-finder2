@@ -8,7 +8,7 @@ import './App.css';
 
 class App extends Component {
   
-  async componentDidMount() { 
+  componentDidMount() { 
     axios
     .get('https://api.github.com/users')
     .then(res => console.log(res.data));

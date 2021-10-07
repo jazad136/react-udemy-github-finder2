@@ -8,11 +8,11 @@ import './App.css';
 
 class App extends Component {
   
-  componentDidMount() { 
-    axios
+  async componentDidMount() { 
+    const res = await axios
     .get('https://api.github.com/users')
-    .then(res => console.log(res.data));
-    
+
+    console.log(res.data)
   }
   render() {
     return(<div className="App">

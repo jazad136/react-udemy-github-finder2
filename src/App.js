@@ -7,12 +7,14 @@ import './App.css';
 
 
 class App extends Component {
-  
+  state = {
+    users: [],
+    loading: false
+  };
   async componentDidMount() { 
-    const res = await axios
-    .get('https://api.github.com/users')
-
-    console.log(res.data)
+    this.setState({loading: true})
+    const res = await axios.get('https://api.github.com/users')
+    this.setState({loading: false})
   }
   render() {
     return(<div className="App">

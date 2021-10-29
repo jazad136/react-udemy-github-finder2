@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import UserItem from './UserItem'
-export class Users extends Component {
-    
-    render() {
-        return (
-            <div style={userStyle}>
-              {this.props.users.map(user => (
-                  <UserItem key={user.id} user={user}/>
-              ))} 
-            </div>
-        )
-    }
+// export class Users extends Component {
+const Users = ({ users , loading }) => {
+    return (
+        <div style={userStyle}>
+            {users.map(user => (
+                <UserItem key={user.id} user={user}/>
+            ))} 
+        </div>
+    )
 }
 
 

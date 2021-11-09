@@ -5,7 +5,7 @@ export class Search extends Component {
         text: ''
     }
     // text above must match text in the form below
-    onSubmit(e) { 
+    onSubmit = e => { 
         e.preventDefault();
         console.log(this.state.text)
     }
@@ -13,7 +13,7 @@ export class Search extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit.bind(this)} className="form">
+                <form onSubmit={this.onSubmit} className="form">
                     <input type="text" name="text" placeholder="Search users..." 
                     value={this.state.text}
                     onChange={this.onChange}/>

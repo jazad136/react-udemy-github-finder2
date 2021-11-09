@@ -11,25 +11,35 @@ class App extends Component {
     users: [],
     loading: false
   };
-  async componentDidMount() { 
-    this.setState({loading: true})
-    console.log('React Token:' + process.env.REACT_APP_GITHUB_ACCESS_TOKEN)
-    console.log('React ID:' + process.env.REACT_APP_GITHUB_CLIENT_ID)
-    console.log('React Secret:' + process.env.REACT_APP_GITHUB_CLIENT_SECRET)
-    // https://docs.github.com/en/rest/reference/search
+  // async componentDidMount() { 
+  //   this.setState({loading: true})
+  //   console.log('React Token:' + process.env.REACT_APP_GITHUB_ACCESS_TOKEN)
+  //   console.log('React ID:' + process.env.REACT_APP_GITHUB_CLIENT_ID)
+  //   console.log('React Secret:' + process.env.REACT_APP_GITHUB_CLIENT_SECRET)
+  //   // https://docs.github.com/en/rest/reference/search
+    
+  //   // const config = {
+  //   //   Authorization: process.env.REACT_APP_GITHUB_ACCESS_TOKEN
+  //   // }
+  //   const config = {
+  //     [process.env.REACT_APP_GITHUB_CLIENT_ID]:
+  //     process.env.REACT_APP_GITHUB_CLIENT_SECRET,
+  //   };
+    
+  //   const res = await axios.get('https://api.github.com/users', config);
+  //   this.setState({users: res.data, loading: false})
+  // } 
+  // Search GitHub Users
+  searchUsers = async (text) => { 
+    this.setState({loading: true});
     const config = {
       [process.env.REACT_APP_GITHUB_CLIENT_ID]:
       process.env.REACT_APP_GITHUB_CLIENT_SECRET,
     };
-    // const config = {
-    //   Authorization: process.env.REACT_APP_GITHUB_ACCESS_TOKEN
-    // }
-    const res = await axios.get('https://api.github.com/users', config);
-    this.setState({users: res.data, loading: false})
-  } 
-  // Search GitHub Users
-  searchUsers = (text) => { 
-    console.log(text);
+    
+    const res = await axios.get(
+      `https://api.github.com/search/users?q=${text}`, config)
+    this.setState({users: res.data.items, loading: false})
   }
   render() {
     return(<div className="App">

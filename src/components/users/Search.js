@@ -5,13 +5,15 @@ export class Search extends Component {
         text: ''
     }
     // text above must match text in the form below
-    onChange = (e) => { 
-        this.setState({ [e.target.name]: e.target.value });
+    onSubmit(e) { 
+        e.preventDefault();
+        console.log(this.state.text)
     }
+    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
     render() {
         return (
             <div>
-                <form className="form">
+                <form onSubmit={this.onSubmit.bind(this)} className="form">
                     <input type="text" name="text" placeholder="Search users..." 
                     value={this.state.text}
                     onChange={this.onChange}/>

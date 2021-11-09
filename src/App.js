@@ -16,7 +16,7 @@ class App extends Component {
     console.log('React Token:' + process.env.REACT_APP_GITHUB_ACCESS_TOKEN)
     console.log('React ID:' + process.env.REACT_APP_GITHUB_CLIENT_ID)
     console.log('React Secret:' + process.env.REACT_APP_GITHUB_CLIENT_SECRET)
-   
+    // https://docs.github.com/en/rest/reference/search
     const config = {
       [process.env.REACT_APP_GITHUB_CLIENT_ID]:
       process.env.REACT_APP_GITHUB_CLIENT_SECRET,
@@ -27,11 +27,15 @@ class App extends Component {
     const res = await axios.get('https://api.github.com/users', config);
     this.setState({users: res.data, loading: false})
   } 
+  // Search GitHub Users
+  searchUsers = (text) => { 
+    console.log(text);
+  }
   render() {
     return(<div className="App">
       <Navbar />
       <div className="container">
-        <Search />
+        <Search searchUsers={this.searchUsers} />
         <Users loading={this.state.loading} users={this.state.users} />
       </div>
     </div>

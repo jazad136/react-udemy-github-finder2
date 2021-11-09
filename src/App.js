@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import './App.css';
 
-
 class App extends Component {
   state = {
     users: [],

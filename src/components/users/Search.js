@@ -4,8 +4,9 @@ export class Search extends Component {
     state = {
         text: ''
     }
+    // text above must match text in the form below
     onChange = (e) => { 
-        this.setState({ text: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     }
     render() {
         return (

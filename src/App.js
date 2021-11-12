@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar'
 import Users from './components/users/Users'
 import Search from './components/users/Search'
 import axios from 'axios';
+import Alert from './components/layout/Alert'
 
 import './App.css';
 
@@ -50,13 +51,18 @@ class App extends Component {
   // set an alert
   setAlert = (msg, type) => {
     this.setState({ alert: { msg: msg, type: type } })
+    setTimeout(() => this.setState({ alert: null }), 3000)
   }
   
+  // unsetAlert = () => { 
+  //   this.setState({ alert: null })
+  // }
   render() {
     const {users, loading} = this.state
     return(<div className="App">
       <Navbar />
       <div className="container">
+        <Alert alert={this.state.alert}/>
         <Search 
           searchUsers={this.searchUsers} 
           clearUsers={this.clearUsers} 

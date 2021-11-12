@@ -9,7 +9,9 @@ import './App.css';
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
+
   };
   // async componentDidMount() { 
   //   this.setState({loading: true})
@@ -41,7 +43,15 @@ class App extends Component {
       `https://api.github.com/search/users?q=${text}`, config)
     this.setState({users: res.data.items, loading: false})
   }
+
+  // clear users from state
   clearUsers = () => this.setState({users: [], loading: false})
+
+  // set an alert
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg: msg, type: type } })
+  }
+  
   render() {
     const {users, loading} = this.state
     return(<div className="App">
@@ -51,6 +61,7 @@ class App extends Component {
           searchUsers={this.searchUsers} 
           clearUsers={this.clearUsers} 
           showClear={users.length > 0 ? true : false}
+          setAlert={this.setAlert}
         />
         <Users loading={loading} users={users} />
       </div>

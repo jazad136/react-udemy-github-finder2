@@ -6,7 +6,9 @@ export class Search extends Component {
         textError: ''
     }
     static propTypes = {
-        searchUsers: PropTypes.func.isRequired
+        searchUsers: PropTypes.func.isRequired,
+        clearUsers: PropTypes.func.isRequired,
+        showClear: PropTypes.bool.isRequired,
     }
     // text above must match text in the form below
     onSubmit = e => { 
@@ -28,8 +30,10 @@ export class Search extends Component {
                         <input type="text" name="text" placeholder="Search users..." 
                         value={this.state.text}
                         onChange={this.onChange}/>
-                        <input type="submit" value="search" className="btn btn-dark btn-block"/>
+                        <input type="submit" value="Search" className="btn btn-dark btn-block"/>
                     </form>
+                    {this.props.showClear && <button 
+                      className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button> }
                     <div>
                         <h2 style={errorStyle}>&nbsp;</h2>
                     </div>

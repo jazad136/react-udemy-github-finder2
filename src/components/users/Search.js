@@ -13,49 +13,28 @@ export class Search extends Component {
     // text above must match text in the form below
     onSubmit = e => { 
         e.preventDefault();
-        if(this.state.text) { 
-            this.props.searchUsers(this.state.text);
-            this.setState({text: '', textError: ''})
-        }
-        else {    
-            this.setState({text: '', textError: 'Please enter a search string'})
-        }
+        this.props.searchUsers(this.state.text);
+        this.setState({text: '', textError: ''})
     } 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
     render() {
         const {showClear, clearUsers} = this.props;
-        if(!this.state.textError) {
-            return (
+        return (
+            <div>
+                <form onSubmit={this.onSubmit} className="form">
+                    <input type="text" name="text" placeholder="Search users..." 
+                    value={this.state.text}
+                    onChange={this.onChange}/>
+                    <input type="submit" value="Search" className="btn btn-dark btn-block"/>
+                </form>
+                {showClear && <button 
+                    className="btn btn-light btn-block" onClick={clearUsers}>Clear</button> }
                 <div>
-                    <form onSubmit={this.onSubmit} className="form">
-                        <input type="text" name="text" placeholder="Search users..." 
-                        value={this.state.text}
-                        onChange={this.onChange}/>
-                        <input type="submit" value="Search" className="btn btn-dark btn-block"/>
-                    </form>
-                    {showClear && <button 
-                      className="btn btn-light btn-block" onClick={clearUsers}>Clear</button> }
-                    <div>
-                        <h2 style={errorStyle}>&nbsp;</h2>
-                    </div>
+                    <h2 style={errorStyle}>&nbsp;</h2>
                 </div>
-            )
-        }
-        else 
-            return (
-                <div>
-                    <form onSubmit={this.onSubmit} className="form">
-                        <input type="text" name="text" placeholder="Search users..." 
-                        value={this.state.text}
-                        onChange={this.onChange}/>
-                        <input type="submit" value="search" className="btn btn-dark btn-block"/>
-                    </form>
-                    <div>
-                        <h2 style={errorStyle}>{this.state.textError}</h2>
-                    </div>
-                    
-                </div>
-            )
+            </div>
+        )
+        
     }
 }
 const errorStyle = {

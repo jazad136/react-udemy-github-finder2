@@ -23,6 +23,7 @@ export class Search extends Component {
     } 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
     render() {
+        const {showClear, clearUsers} = this.props;
         if(!this.state.textError) {
             return (
                 <div>
@@ -32,8 +33,8 @@ export class Search extends Component {
                         onChange={this.onChange}/>
                         <input type="submit" value="Search" className="btn btn-dark btn-block"/>
                     </form>
-                    {this.props.showClear && <button 
-                      className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button> }
+                    {showClear && <button 
+                      className="btn btn-light btn-block" onClick={clearUsers}>Clear</button> }
                     <div>
                         <h2 style={errorStyle}>&nbsp;</h2>
                     </div>

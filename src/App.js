@@ -54,9 +54,9 @@ class App extends Component {
     setTimeout(() => this.setState({ alert: null }), 3000)
   }
   
-  // unsetAlert = () => { 
-  //   this.setState({ alert: null })
-  // }
+  unsetAlert = () => { 
+    this.setState({ alert: null })
+  }
   render() {
     const {users, loading} = this.state
     return(<div className="App">
@@ -67,7 +67,8 @@ class App extends Component {
           searchUsers={this.searchUsers} 
           clearUsers={this.clearUsers} 
           showClear={users.length > 0 ? true : false}
-          setAlert={this.setAlert}
+          setAlert={this.setAlert} 
+          unsetAlert={this.unsetAlert}
         />
         <Users loading={loading} users={users} />
       </div>

@@ -20,6 +20,6 @@ export const Alert = ({ alert,unsetAlert }) => {
 const alertBoxStyle = {
     padding: '0.7rem',
     margin: '1rem 0',
-    opacity: '0.9', 
+    opacity: '0.9'
 }
 export default Alert

@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     users: [],
     loading: false,
-    alert: null
+    alert: null,
+    alertId: null
 
   };
   // async componentDidMount() { 
@@ -51,18 +52,20 @@ class App extends Component {
   // set an alert
   setAlert = (msg, type) => {
     this.setState({ alert: { msg: msg, type: type } })
-    setTimeout(() => this.setState({ alert: null }), 3000)
+    const alId = setTimeout(() => this.setState({ alert: null, alertId : null}), 3000)
+    this.setState({alertId : alId})
   }
   
   unsetAlert = () => { 
-    this.setState({ alert: null })
+    clearTimeout(this.state.alertId)
+    this.setState({ alert: null, alertId : null})
   }
   render() {
     const {users, loading} = this.state
     return(<div className="App">
       <Navbar />
       <div className="container">
-        <Alert alert={this.state.alert}/>
+        <Alert alert={this.state.alert} unsetAlert={this.unsetAlert}/>
         <Search 
           searchUsers={this.searchUsers} 
           clearUsers={this.clearUsers} 

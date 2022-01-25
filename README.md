@@ -18,9 +18,13 @@ documentation](https://5d4b5feba32acd0008d0df98--reactjs.netlify.app).
 
 
 #### Current Status of this App
-(Jan 13) Pulling information from GitHub profiles into the app to use in the view. 
+(Jan 13) Main Page can be used to search for users. 
 
-![CurrentStatus](https://github.com/jazad136/react-udemy-github-finder2/blob/main/images/status-githubfinder-routera2-2.png) 
+![Current Status of Main Page](https://github.com/jazad136/react-udemy-github-finder2/blob/main/images/status-githubfinder-routera2-2.png) 
+
+(Jan 25) GitHub profile Page pulls info from GitHub profiles into the app. 
+
+![Current Status of GitHub Profile Page](https://github.com/jazad136/react-udemy-github-finder2/blob/main/images/status-githubfinder-usera2.png)
 
 ### Updates
 <br>(Sep 25) Pulling images from GitHub API (api.github.com)

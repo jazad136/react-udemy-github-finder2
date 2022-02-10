@@ -18,7 +18,7 @@ const GithubState = props => {
         loading: false 
     }
 
-    const [state, dispatch] = useReducer(GithubReducer, initialState)
+    const [state, dispatch] = useReducer(githubReducer, initialState)
 
 
     // Search Users

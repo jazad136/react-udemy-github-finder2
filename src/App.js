@@ -22,7 +22,7 @@ const App = () => {
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [alert, setStateAlert] = useState(null);
+  const [alert, setAlert] = useState(null);
   const [alertId, setAlertId] = useState(null);
 
   // Search GitHub Users
@@ -85,12 +85,12 @@ const App = () => {
     setLoading(false);
   };
   // set an alert
-  const setAlert = (msg, type) => {
-    setStateAlert({ msg, type });
+  const showAlert = (msg, type) => {
+    setAlert({ msg, type });
     // this.setState({ alert: { msg: msg, type: type } })
     // const alId = setTimeout(() => this.setState({ alert: null, alertId : null}), 3000)
     // this.setState({alertId : alId})
-    const alId = setTimeout(() => setStateAlert(null), 5000);
+    const alId = setTimeout(() => setAlert(null), 5000);
     setAlertId(alId);
   };
 
@@ -98,7 +98,7 @@ const App = () => {
     // clearTimeout(this.state.alertId)
     clearTimeout(alertId);
     // this.setState({ alert: null, alertId : null})
-    setStateAlert(null);
+    setAlert(null);
     setAlertId(null);
   };
 
@@ -118,7 +118,7 @@ const App = () => {
                     searchUsers={searchUsers}
                     clearUsers={clearUsers}
                     showClear={users.length > 0 ? true : false}
-                    setAlert={setAlert}
+                    setAlert={showAlert}
                     unsetAlert={unsetAlert}
                   />
                   <Users loading={loading} users={users} />

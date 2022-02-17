@@ -14,9 +14,7 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
             setAlert('Please enter something', 'light');
         }
         else { 
-            // searchUsers(text);
             githubContext.searchUsers(text)
-            // setState({text: '', textError: ''});
             setText('')
         }
     } 
@@ -43,9 +41,7 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
             Clear
           </button>
         )}
-        {/* <div>
-          <h2 style={errorStyle}>{textError}</h2>
-        </div> */}
+        
       </div>
     );        
     
@@ -54,7 +50,6 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
 //     color: 'red'
 // }
 Search.propTypes = {
-    // searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
     showClear: PropTypes.bool.isRequired,
     setAlert: PropTypes.func.isRequired

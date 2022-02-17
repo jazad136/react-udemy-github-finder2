@@ -19,22 +19,6 @@ const App = () => {
   const [alert, setAlert] = useState(null);
   const [alertId, setAlertId] = useState(null);
 
-  // Search GitHub Users
-  // const searchUsers = async (text) => {
-  //   setLoading(true);
-  //   const config = {
-  //     [process.env.REACT_APP_GITHUB_CLIENT_ID]:
-  //       process.env.REACT_APP_GITHUB_CLIENT_SECRET,
-  //   };
-
-  //   const res = await axios.get(
-  //     `https://api.github.com/search/users?q=${text}`,
-  //     config
-  //   );
-  //   setUsers(res.data.items);
-  //   setLoading(false);
-  // };
-
   // Get a single GitHub user
   const getUser = async (username) => {
     setLoading(true);

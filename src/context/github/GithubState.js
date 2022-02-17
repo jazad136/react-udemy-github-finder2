@@ -23,7 +23,6 @@ const GithubState = props => {
 
     // Search Users
     const searchUsers = async (text) => {
-      // this.setState({loading: true});
       setLoading(true);
       const config = {
         [process.env.REACT_APP_GITHUB_CLIENT_ID]:

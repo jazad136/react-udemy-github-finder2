@@ -73,7 +73,8 @@ const GithubState = props => {
             repos: state.repos,
             loading: state.loading,
             searchUsers,
-            clearUsers
+            clearUsers,
+            getUser
         }}>
             {props.children}
     </githubContext.Provider>)

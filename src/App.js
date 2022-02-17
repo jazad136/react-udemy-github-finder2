@@ -17,21 +17,6 @@ const App = () => {
   const [alert, setAlert] = useState(null);
   const [alertId, setAlertId] = useState(null);
 
-  // Get a single GitHub user
-  // const getUser = async (username) => {
-  //   setLoading(true);
-  //   const config = {
-  //     [process.env.REACT_APP_GITHUB_CLIENT_ID]:
-  //       process.env.REACT_APP_GITHUB_CLIENT_SECRET,
-  //   };
-
-  //   const res = await axios.get(
-  //     `https://api.github.com/users/${username}`,
-  //     config
-  //   );
-  //   setLoading(false);
-  //   setUser(res.data);
-  // };
 
   // Get user repos
   const getUserRepos = async (username) => {

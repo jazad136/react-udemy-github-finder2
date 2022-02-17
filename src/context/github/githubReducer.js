@@ -10,15 +10,15 @@ export default (state, action) => {
   switch(action.type) { 
     case SEARCH_USERS: 
       return {
-        ...state,
+        ...state, 
         users: action.payload,
         loading: false
       }
     case SET_LOADING: 
-      return { // spread operator used below
-            ...state,
-            loading: true
-        }
+      return { 
+        ...state, // spread operator: get all previously defined JS object props
+        loading: true
+      }
     default: return state;
   }  
 }

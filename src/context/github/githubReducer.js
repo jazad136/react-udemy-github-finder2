@@ -32,6 +32,12 @@ export default (state, action) => {
         ...state, // spread operator: get all previously defined JS object props
         loading: true
       }
+    case GET_REPOS:
+      return {
+        ...state, 
+        repos: action.payload,
+        loading: false
+      }
     default: return state;
   }  
 }

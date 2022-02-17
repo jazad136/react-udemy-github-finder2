@@ -4,7 +4,6 @@ import Navbar from './components/layout/Navbar'
 import Users from './components/users/Users'
 import User from './components/users/User'
 import Search from './components/users/Search'
-import axios from 'axios';
 import Alert from './components/layout/Alert'
 import About from './components/pages/About'
 import './App.css';
@@ -12,28 +11,8 @@ import './App.css';
 import GithubState from './context/github/GithubState';
 
 const App = () => {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
   const [alertId, setAlertId] = useState(null);
-
-
-  // Get user repos
-  const getUserRepos = async (username) => {
-    setLoading(true);
-    const config = {
-      [process.env.REACT_APP_GITHUB_CLIENT_ID]:
-        process.env.REACT_APP_GITHUB_CLIENT_SECRET,
-    };
-
-    const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc`,
-      config
-    );
-    setRepos(res.data);
-    setLoading(false);
-  };
-
   
   
   // set an alert
@@ -75,13 +54,7 @@ const App = () => {
               <Route
                 exact
                 path="/user/:login"
-                render={(props) => (
-                  <User
-                    {...props}
-                    getUserRepos={getUserRepos}
-                    repos={repos}
-                  />
-                )}
+                component={User}
               />
             </Switch>
           </div>

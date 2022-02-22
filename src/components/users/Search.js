@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import GithubContext from '../../context/github/githubContext';
 
 // export class Search extends Component {
-const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
-    // state = {
-    //     text: '',
-    //     textError: ''
-    // }
+const Search = ({ setAlert }) => {
+    const githubContext = useContext(GithubContext);
+
     const [ text, setText ] = useState('')
     // text above must match text in the form below
     const onSubmit = e => { 
@@ -15,8 +14,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
             setAlert('Please enter something', 'light');
         }
         else { 
-            searchUsers(text);
-            // setState({text: '', textError: ''});
+            githubContext.searchUsers(text)
             setText('')
         }
     } 
@@ -38,25 +36,25 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
             className="btn btn-dark btn-block"
           />
         </form>
-        {showClear && (
+        {/* {showClear && (
           <button className="btn btn-light btn-block" onClick={clearUsers}>
             Clear
           </button>
+        )} */}
+        {githubContext.users.length > 0 && (
+          <button className='btn btn-light btn-block' onClick={githubContext.clearUsers}>
+            Clear
+          </button> 
         )}
-        {/* <div>
-          <h2 style={errorStyle}>{textError}</h2>
-        </div> */}
+        
       </div>
     );        
     
 }
-// const errorStyle = {
-//     color: 'red'
-// }
+
 Search.propTypes = {
-    searchUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.bool.isRequired,
+    // clearUsers: PropTypes.func.isRequired,
+    // showClear: PropTypes.bool.isRequired,
     setAlert: PropTypes.func.isRequired
 }
 export default Search

@@ -16,11 +16,11 @@ const App = () => {
   
   
   // set an alert
-  const showAlert = (msg, type) => {
-    setAlert({ msg, type });
-    const alId = setTimeout(() => setAlert(null), 5000);
-    setAlertId(alId);
-  };
+  // const showAlert = (msg, type) => {
+  //   setAlert({ msg, type });
+  //   const alId = setTimeout(() => setAlert(null), 5000);
+  //   setAlertId(alId);
+  // };
 
   const unsetAlert = () => {
     clearTimeout(alertId);

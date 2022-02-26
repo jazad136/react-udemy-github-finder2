@@ -1,48 +1,49 @@
 import React, { useReducer } from 'react';
-import axios from 'axios';
-import alertContext from './githubContext';
-import alertReducer from './githubReducer';
+import AlertContext from './alertContext';
+import alertReducer from './alertReducer';
 import {
     SET_ALERT,
     REMOVE_ALERT
 } from '../types'
 
-const GithubState = props => {
-    const initialState = {
-        alert: null,
-        alertId: null
-    };
+const AlertState = props => {
+    // const initialState = {
+    //     alert: null,
+    //     alertId: null
+    // };
+    const initialState = null;
 
-    const [state, dispatch] = useReducer(githubReducer, initialState)
+    const [state, dispatch] = useReducer(alertReducer, initialState)
 
-
-    const showAlert = (msg, type) => {
-        const alId = setTimeout(() => setAlert(null), 5000);
+    // Set Alert
+    const setAlert = (msg, type) => {
+        // const alId = setTimeout(() => setAlert(null), 5000);
         dispatch({
             type: SET_ALERT,
-            payload: {
-                alert: 'Please enter something.',
-                alertId: alId
-            }
-        })
+            payload: {msg, type}
+        });
+        //const alId = setTimeout(() => setAlert(null))
+        setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
+        
         // setAlert({ msg, type });
         // setAlertId(alId);
-      };
-
-    return (<githubContext.Provider
+    };
+    const unsetAlert = () => {
+        dispatch({ type: REMOVE_ALERT })
+        // clearTimeout(alertId);
+        // setAlert(null);
+        // setAlertId(null);
+    };
+    return (<AlertContext.Provider
         value = {{
-            users: state.users,
-            user: state.user,
-            repos: state.repos,
-            loading: state.loading,
-            searchUsers,
-            clearUsers,
-            getUser, 
-            getUserRepos,
-            setAlert
+            // alert: state.alert,
+            // alertId: state.alertId,
+            alert: state,
+            setAlert,
+            unsetAlert
         }}>
             {props.children}
-    </githubContext.Provider>)
+    </AlertContext.Provider>)
 }
 
-export default GithubState;
+export default AlertState;

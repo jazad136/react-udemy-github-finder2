@@ -10,7 +10,8 @@ export const Alert = () => {
         alert != null ? ( 
             <div className={`alert alert-${alert.type}`}>
                 <i className="fas fa-info-circle"></i> {alert.msg}
-                <button onClick={unsetAlert} className="btn btn-sm">
+                {/* <button onClick={unsetAlert} className="btn btn-sm"> */}
+                <button onClick={() => unsetAlert(alert.alertId)} className="btn btn-sm">
                     <i className="fas fa-times-circle"></i>
                     Close This Message
                 </button> 

@@ -7,37 +7,30 @@ import {
 } from '../types'
 
 const AlertState = props => {
-    // const initialState = {
-    //     alert: null,
-    //     alertId: null
-    // };
-    const initialState = null;
+    const initialState = null
 
     const [state, dispatch] = useReducer(alertReducer, initialState)
 
     // Set Alert
     const setAlert = (msg, type) => {
-        // const alId = setTimeout(() => setAlert(null), 5000);
+        if(state && state.alertId) {
+            clearTimeout(state.alertId)
+        }
+        const alertId = setTimeout(() => dispatch({ type: REMOVE_ALERT }),5000);
+        
         dispatch({
             type: SET_ALERT,
-            payload: {msg, type}
+            payload: {msg, type, alertId}
         });
-        //const alId = setTimeout(() => setAlert(null))
-        setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
-        
-        // setAlert({ msg, type });
-        // setAlertId(alId);
     };
-    const unsetAlert = () => {
+
+    // Unset Alert
+    const unsetAlert = (alertId) => {
         dispatch({ type: REMOVE_ALERT })
-        // clearTimeout(alertId);
-        // setAlert(null);
-        // setAlertId(null);
+        clearTimeout(alertId)
     };
     return (<AlertContext.Provider
         value = {{
-            // alert: state.alert,
-            // alertId: state.alertId,
             alert: state,
             setAlert,
             unsetAlert
